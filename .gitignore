@@ -1,0 +1,10 @@
+.idea/
+db.sqlite3/
+.DS_Store
+*/migrations/0*
+*/migrations/__pycache__/
+*/__pycache__/
+media/
+static/
+venv/
+__pycache__/
