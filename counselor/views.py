@@ -37,14 +37,17 @@ class GetRankSuggestionAPIView(APIView):
                                          service=service_object)
 
         suggestion, current_rank = get_region_rank(
-            service_object.available_regions.filter(pue__isnull=False, co_foot_print__isnull=False).distinct(),
-            current_region,
-            service_plan)
+            service_object.available_regions.filter(pue__isnull=False, co_foot_print__isnull=False,
+                                                    plan__service_plan=service_plan.service_plan).distinct(),
+            current_region)
         current_spec = Spec(nodes=nodes, memory=memory, storage=storage, provider=current_region.provider)
 
         response = {
             "rank": current_rank,
-            "region_suggestion": RegionSerializer(suggestion, many=True, context={"spec": current_spec}).data,
+            "region_suggestion": RegionSerializer(
+                suggestion, many=True,
+                context={"spec": current_spec, "service_plan": service_plan, "service": service_object}
+            ).data,
             "spec_co": get_spec_co(current_spec, current_region)
         }
 

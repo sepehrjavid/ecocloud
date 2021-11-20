@@ -1,7 +1,7 @@
 import pandas as pd
 from counselor.services import Spec
 from ecocloud.settings import CSV_LOCATION, SPEC_POWER
-from counselor.models import Region, ServiceRegionRelation
+from counselor.models import Region, ServiceRegionRelation, Service
 
 
 def load_csv():
@@ -18,7 +18,7 @@ def load_csv():
 
 
 # return the top 5 options that are better than the current one
-def get_region_rank(regions, current_region: Region, service_plan: ServiceRegionRelation) -> tuple:
+def get_region_rank(regions, current_region: Region) -> tuple:
     top_regions = []
 
     for region in regions:
