@@ -137,3 +137,25 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 CORS_ORIGIN_ALLOW_ALL = True
 
 CSV_LOCATION = "grids_footprint.csv"
+
+# TODO: move this to the database
+SPEC_POWER = {
+    "gcp": {
+        "min_cpu": 1.34,
+        "max_cpu": 4.98,
+        "storage": 0.92,
+        "memory": 0.000392
+    },
+    "azure": {
+        "min_cpu": 0.77,
+        "max_cpu": 3.74,
+        "storage": 0.92,
+        "memory": 0.000392
+    },
+    "aws": {
+        "min_cpu": 0.71,
+        "max_cpu": 3.46,
+        "storage": 0.92,
+        "memory": 0.000392
+    }
+}
