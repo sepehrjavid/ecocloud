@@ -37,7 +37,8 @@ class GetRankSuggestionAPIView(APIView):
                                          service=service_object)
 
         suggestion, current_rank = get_region_rank(
-            service_object.available_regions.filter(pue__isnull=False, co_foot_print__isnull=False), current_region,
+            service_object.available_regions.filter(pue__isnull=False, co_foot_print__isnull=False).distinct(),
+            current_region,
             service_plan)
         current_spec = Spec(nodes=nodes, memory=memory, storage=storage, provider=current_region.provider)
 

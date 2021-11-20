@@ -35,3 +35,6 @@ class ServiceRegionRelation(models.Model):
     service = models.ForeignKey('Service', on_delete=models.CASCADE, related_name='plan')
     service_plan = models.CharField(max_length=60)
     price = models.IntegerField()
+
+    class Meta:
+        unique_together = ('region', 'service', 'service_plan')
