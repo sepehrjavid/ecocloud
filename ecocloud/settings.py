@@ -136,4 +136,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-CSV_LOCATION = ""
+CSV_LOCATION = "grids_footprint.csv"

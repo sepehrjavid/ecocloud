@@ -19,6 +19,7 @@ class Command(BaseCommand):
                 region = Region.objects.filter(name=region_name)
                 if not region.exists():
                     region = Region.objects.create(name=region_name)
+                    print(region)
                 else:
                     region = region.first()
                 service_object.available_regions.add(region)
