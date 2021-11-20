@@ -15,13 +15,13 @@ def load_csv():
 
 
 # return the top 5 options that are better than the current one
-def get_region_rank(regions, current_region) -> list:
-    topRegions = []
+def get_region_rank(regions, current_region) -> tuple:
+    top_regions = []
 
     for region in regions:
         if (region.co_foot_print * region.pue) < (current_region.co_foot_print * current_region.pue):
-            topRegions.append(region)
+            top_regions.append(region)
 
-    topRegions.sort(key=lambda x: x.co_foot_print * x.pue)
+    top_regions.sort(key=lambda x: x.co_foot_print * x.pue)
 
-    return topRegions[:5]
+    return top_regions[:5], len(top_regions) + 1

@@ -1,8 +1,11 @@
+from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from counselor.models import Service, Region
 from counselor.serializers import RegionSerializer
+from ecocloud.tools import get_region_rank
 
 
 class GetRankSuggestionAPIView(APIView):
@@ -16,12 +19,15 @@ class GetRankSuggestionAPIView(APIView):
         if current_region_name is None:
             return Response("'region_name' parameter was not provided", status=status.HTTP_400_BAD_REQUEST)
 
-        # function call
+        service_object = get_object_or_404(Service, name=service_name)
+        current_region = get_object_or_404(Region, name=current_region_name)
+
+        suggestion, current_rank = get_region_rank(service_object.available_regions, current_region)
 
         response = {
-            "rank": 1,
-            "region_suggestion": RegionSerializer(many=True).data,
-            "current_co": 1
+            "rank": current_rank,
+            "region_suggestion": RegionSerializer(suggestion, many=True).data,
+            "spec_co": 1
         }
 
         return Response(response, status=status.HTTP_200_OK)
