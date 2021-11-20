@@ -1,69 +1,72 @@
-﻿;Provider;Region;Country;Continent;CO2
-0;aws;us-east-1;united states;america;0.000415755
-1;aws;us-east-2;united states;america;0.000440187
-2;aws;us-west-1;united states;america;0.000350861
-3;aws;us-west-2;united states;america;0.000350861
-4;aws;us-gov-east-1;united states;america;0.000415755
-5;aws;us-gov-west-1;united states;america;0.000350861
-6;aws;af-south-1;south africa;africa;0.000928
-7;aws;ap-east-1;hong kong;asia;0.00081
-8;aws;ap-south-1;india;asia;0.000708
-9;aws;ap-northeast-3;japan;asia;0.000506
-10;aws;ap-northeast-2;south korea;asia;0.0005
-11;aws;ap-southeast-1;singapore;asia;0.0004085
-12;aws;ap-southeast-2;australia;oceania;0.00079
-13;aws;ap-northeast-1;japan;asia;0.000506
-14;aws;ca-central-1;canada;america;0.00013
-15;aws;cn-north-1;china;asia;0.000555
-16;aws;cn-northwest-1;china;asia;0.000555
-17;aws;eu-central-1;germany;europe;0.000338
-18;aws;eu-west-1;ireland;europe;0.000316
-19;aws;eu-west-2;england;europe;0.000228
-20;aws;eu-south-1;italy;europe;0.000233
-21;aws;eu-west-3;france;europe;0,000052
-22;aws;eu-north-1;sweden;europe;0,000008
-23;aws;me-south-1;bahrain;asia;0.000732
-24;aws;sa-east-1;brazil;america;0,000074
-25;azure;centralus;iowa;america;0.00047223
-26;azure;eastus;virginia;america;0.000415755
-27;azure;eastus2;virginia;america;0.000415755
-28;azure;eastus3;georgia;america;0.000415755
-29;azure;northcentralus;illinois;america;0.000440187
-30;azure;southcentralus;texas;america;0.000396293
-31;azure;westcentralus;wyoming;america;0.000350861
-32;azure;westus;california;america;0.000350861
-33;azure;westus2;washington;america;0.000350861
-34;azure;westus3;arizona;america;0.000350861
-35;azure;eastasia;hong kong;asia;0.00081
-36;azure;southeastasia;singapore;asia;0.0004085
-37;azure;northeurope;ireland;europe;0.000316
-38;azure;westeurope;netherlands;europe;0.00039
-39;azure;centralindia;pune;asia;0.000708
-40;azure;southindia;chennai;asia;0.000708
-41;azure;westindia;mumbai;asia;0.000708
-42;azure;uksouth;london;europe;0.000228
-43;azure;ukwest;cardiff;europe;0.000228
-44;google;us-central1;iowa;america;0.000479
-45;google;us-east1;south carolina;america;0.0005
-46;google;us-east4;northern virginia;america;0.000383
-47;google;us-west1;oregon;america;0.000117
-48;google;us-west2;los angeles;america;0.000248
-49;google;us-west3;salt lake city;america;0.000561
-50;google;us-west4;las vegas;america;0.000491
-51;google;asia-east1;taiwan;asia;0.000541
-52;google;asia-east2;hong kong;asia;0.000626
-53;google;asia-northeast1;japan;asia;0.000524
-54;google;asia-northeast2;japan;asia;0.000524
-55;google;asia-northeast3;south korea;asia;0.00054
-56;google;asia-south1;india;asia;0.000723
-57;google;asia-southeast1;singapore;asia;0.000493
-58;google;asia-southeast2;indonesia;asia;0.000772
-59;google;australia-southeast1;australia;oceania;0.000725
-60;google;europe-north1;finland;europe;0.000181
-61;google;europe-west1;belgium;europe;0.000196
-62;google;europe-west2;england;europe;0.000257
-63;google;europe-west3;germany;europe;0.000319
-64;google;europe-west4;netherlands;europe;0.000474
-65;google;europe-west6;switzerland;europe;0,000029
-66;google;northamerica-northeast1;canada;america;0.000143
-67;google;southamerica-east1;brazil;america;0.000109
+﻿;Provider;Region;Country;Continent;CO2;PUE
+0;aws;us-east-1;united states;america;0.000415755;1.135
+1;aws;us-east-2;united states;america;0.000440187;1.135
+2;aws;us-west-1;united states;america;0.000350861;1.135
+3;aws;us-west-2;united states;america;0.000350861;1.135
+4;aws;us-gov-east-1;united states;america;0.000415755;1.135
+5;aws;us-gov-west-1;united states;america;0.000350861;1.135
+6;aws;af-south-1;south africa;africa;0.000928;1.135
+7;aws;ap-east-1;hong kong;asia;0.00081;1.135
+8;aws;ap-south-1;india;asia;0.000708;1.135
+9;aws;ap-northeast-3;japan;asia;0.000506;1.135
+10;aws;ap-northeast-2;south korea;asia;0.0005;1.135
+11;aws;ap-southeast-1;singapore;asia;0.0004085;1.135
+12;aws;ap-southeast-2;australia;oceania;0.00079;1.135
+13;aws;ap-northeast-1;japan;asia;0.000506;1.135
+14;aws;ca-central-1;canada;america;0.00013;1.135
+15;aws;cn-north-1;china;asia;0.000555;1.135
+16;aws;cn-northwest-1;china;asia;0.000555;1.135
+17;aws;eu-central-1;germany;europe;0.000338;1.135
+18;aws;eu-west-1;ireland;europe;0.000316;1.135
+19;aws;eu-west-2;england;europe;0.000228;1.135
+20;aws;eu-south-1;italy;europe;0.000233;1.135
+21;aws;eu-west-3;france;europe;0.000052;1.135
+22;aws;eu-north-1;sweden;europe;0.000008;1.135
+23;aws;me-south-1;bahrain;asia;0.000732;1.135
+24;aws;sa-east-1;brazil;america;0.000074;1.135
+25;azure;centralus;iowa;america;0.00047223;1.125
+26;azure;eastus;virginia;america;0.000415755;1.125
+27;azure;eastus2;virginia;america;0.000415755;1.125
+28;azure;us-east-3;georgia;america;0.000415755;1.125
+29;azure;northcentralus;illinois;america;0.000440187;1.125
+30;azure;southcentralus;texas;america;0.000396293;1.125
+31;azure;westcentralus;wyoming;america;0.000350861;1.125
+32;azure;westus;california;america;0.000350861;1.125
+33;azure;eastus2;washington;america;0.000350861;1.125
+34;azure;us-west-3;arizona;america;0.000350861;1.125
+35;azure;eastasia;hong kong;asia;0.00081;1.125
+36;azure;southeastasia;singapore;asia;0.0004085;1.125
+37;azure;northeurope;ireland;europe;0.000316;1.125
+38;azure;westeurope;netherlands;europe;0.00039;1.125
+39;azure;india-central;pune;asia;0.000708;1.125
+40;azure;india-south;chennai;asia;0.000708;1.125
+41;azure;india-west;mumbai;asia;0.000708;1.125
+42;azure;uksouth;london;europe;0.000228;1.125
+43;azure;ukwest;cardiff;europe;0.000228;1.125
+44;google;us-central1;iowa;america;0.000479;1.1
+45;google;us-east1;south carolina;america;0.0005;1.1
+46;google;us-east4;northern virginia;america;0.000383;1.1
+47;google;us-west1;oregon;america;0.000117;1.1
+48;google;us-west2;los angeles;america;0.000248;1.1
+49;google;us-west3;salt lake city;america;0.000561;1.1
+50;google;us-west4;las vegas;america;0.000491;1.1
+51;google;asia-east1;taiwan;asia;0.000541;1.1
+52;google;asia-east2;hong kong;asia;0.000626;1.1
+53;google;asia-northeast1;japan;asia;0.000524;1.1
+54;google;asia-northeast2;japan;asia;0.000524;1.1
+55;google;asia-northeast3;south korea;asia;0.00054;1.1
+56;google;asia-south1;india;asia;0.000723;1.1
+57;google;asia-southeast1;singapore;asia;0.000493;1.1
+58;google;asia-southeast2;indonesia;asia;0.000772;1.1
+59;google;australia-southeast1;australia;oceania;0.000725;1.1
+60;google;europe-north1;finland;europe;0.000181;1.1
+61;google;europe-west1;belgium;europe;0.000196;1.1
+62;google;europe-west2;england;europe;0.000257;1.1
+63;google;europe-west3;germany;europe;0.000319;1.1
+64;google;europe-west4;netherlands;europe;0.000474;1.1
+65;google;europe-west6;switzerland;europe;0.000029;1.1
+66;google;northamerica-northeast1;canada;america;0.000143;1.1
+67;google;southamerica-east1;brazil;america;0.000109;1.1
+68;google;asia-south2;india;asia;0.000657;1.1
+69;google;australia-southeast2;australia;australia;0.000691;1.1
+70;google;europe-central2;poland;europe;0.000622;1.1

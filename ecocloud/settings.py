@@ -88,9 +88,6 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.AllowAny',
     ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-    ),
     'DEFAULT_THROTTLE_CLASSES': [
         'rest_framework.throttling.ScopedRateThrottle',
     ]
@@ -140,7 +137,7 @@ CSV_LOCATION = "grids_footprint.csv"
 
 # TODO: move this to the database
 SPEC_POWER = {
-    "gcp": {
+    "google": {
         "min_cpu": 1.34,
         "max_cpu": 4.98,
         "storage": 0.92,
@@ -159,3 +156,5 @@ SPEC_POWER = {
         "memory": 0.000392
     }
 }
+
+MILES_CO_CAR = 2513  # TODO add for api

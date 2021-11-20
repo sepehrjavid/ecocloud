@@ -11,14 +11,15 @@ CONTINENTS = ["asia", "north america", "europe", "south america", "africa"]
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        # load_csv()
+        load_csv()
 
         regions = requests.get("https://api.aiven.io/v1/clouds").json()
 
         for region in regions["clouds"]:
             region_object = Region.objects.filter(name=region["cloud_name"])
             if not region_object.exists():
-                country = region["cloud_description"].lower().split(',')[0]
+                if "do" not in region["cloud_name"] and "upcloud" not in region["cloud_name"]:
+                    country = region["cloud_description"].lower().split(',')[0]
                 if country in CONTINENTS:
                     country = region["cloud_description"].lower().split(',')[1][1:].split('-')[0][:-1]
                 Region.objects.create(name=region["cloud_name"], continent=region["geo_region"], country=country)
@@ -27,6 +28,12 @@ class Command(BaseCommand):
 
         for service_name in services["service_types"]:
             service_object = Service.objects.create(name=service_name)
-            for region_name in services["service_types"][service_name]["service_plans"][0]["regions"]:
-                region = Region.objects.filter(name=region_name).first()
-                service_object.available_regions.add(region)
+            for service_plan in services["service_types"][service_name]["service_plans"]:
+                service_plan_name = service_plan["service_plan"]
+                for region_name in service_plan["regions"]:
+                    region = Region.objects.filter(name=region_name).first()
+                    ServiceRegionRelation.objects.create(
+                        region=region, service=service_object,
+                        service_plan=service_plan_name,
+                        price=float(service_plan["regions"][region_name]["price_usd"]) * 730
+                    )
