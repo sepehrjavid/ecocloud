@@ -28,7 +28,7 @@ def get_region_rank(regions, current_region: Region) -> tuple:
             top_regions.append(region)
 
     top_regions.sort(key=lambda x: x.co_foot_print * x.pue)
-    return top_regions[:5], len(top_regions) + 1
+    return top_regions, len(top_regions) + 1
 
 
 # returns the monthly carbon footprint of the provided specification in the provided region

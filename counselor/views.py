@@ -17,6 +17,7 @@ class GetRankSuggestionAPIView(APIView):
         memory = request.GET.get('memory')
         storage = request.GET.get('storage')
         service_plane_name = request.GET.get('service_plane_name')
+        cpu = request.GET.get('cpu')
 
         if service_name is None:
             return Response("'service' parameter was not provided", status=status.HTTP_400_BAD_REQUEST)
@@ -30,6 +31,8 @@ class GetRankSuggestionAPIView(APIView):
             return Response("'storage' parameter was not provided", status=status.HTTP_400_BAD_REQUEST)
         if service_plane_name is None:
             return Response("'service_plane_name' parameter was not provided", status=status.HTTP_400_BAD_REQUEST)
+        if cpu is None:
+            return Response("'cpu' parameter was not provided", status=status.HTTP_400_BAD_REQUEST)
 
         service_object = get_object_or_404(Service, name=service_name)
         current_region = get_object_or_404(Region, name=current_region_name)
