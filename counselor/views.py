@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from counselor.models import Service, Region
 from counselor.serializers import RegionSerializer
 from counselor.services import Spec
-from ecocloud.tools import get_region_rank, get_spec_power_use
+from ecocloud.tools import get_region_rank, get_spec_co
 
 
 class GetRankSuggestionAPIView(APIView):
@@ -37,7 +37,7 @@ class GetRankSuggestionAPIView(APIView):
         response = {
             "rank": current_rank,
             "region_suggestion": RegionSerializer(suggestion, many=True, context={"spec": current_spec}).data,
-            "spec_co": get_spec_power_use(current_spec)
+            "spec_co": get_spec_co(current_spec, current_region)
         }
 
         return Response(response, status=status.HTTP_200_OK)
