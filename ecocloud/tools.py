@@ -3,6 +3,7 @@ from counselor.services import Spec
 from ecocloud.settings import CSV_LOCATION, SPEC_POWER
 from counselor.models import Region, ServiceRegionRelation, Service
 
+
 # load the data about the environmental impact of each region
 
 
@@ -49,10 +50,11 @@ def get_spec_power_use(spec: Spec, cpu_usage=50):
     spec.stats = SPEC_POWER[spec.provider]
     # get the mean CPU cost for usage%
     cpu = (spec.stats["max_cpu"] - spec.stats["min_cpu"]) * \
-        cpu_usage / 100 + spec.stats["min_cpu"]
+          cpu_usage / 100 + spec.stats["min_cpu"]
     # per TB power consumption for storage
     storage = spec.stats["storage"] * spec.storage / 1024
     # per GB power consumption for memory
     memory = spec.stats["memory"] * spec.memory / 1000
-
-    return cpu + storage + memory
+    if spec.nodes is None:
+        spec.nodes = 1
+    return (cpu + storage + memory) * spec.nodes
