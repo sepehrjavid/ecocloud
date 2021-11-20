@@ -7,10 +7,21 @@ def load_csv():
     file = pd.read_csv(CSV_LOCATION, header=0, delimiter=';', index_col=False)
 
     for row in file.iterrows():
-        region_object = Region.objects.filter(name='-'.join([row[1][0], row[1][1]]))
+        region_object = Region.objects.filter(
+            name='-'.join([row[1][0], row[1][1]]))
         if not region_object.exists():
-            Region.objects.create(name='-'.join([row[1][0], row[1][1]]), co_foot_print=row[1][3])
+            Region.objects.create(
+                name='-'.join([row[1][0], row[1][1]]), co_foot_print=row[1][3])
 
 
-def get_region_rank(regions) -> list:
-    pass
+# return the top 5 options that are better than the current one
+def get_region_rank(regions, current_region) -> list:
+    topRegions = []
+
+    for region in regions:
+        if (region.co_foot_print * region.pue) < (current_region.co_foot_print * current_region.pue):
+            topRegions.append(region)
+
+    topRegions.sort(key=lambda x: x.co_foot_print * x.pue)
+
+    return topRegions[:5]
