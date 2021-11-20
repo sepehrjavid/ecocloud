@@ -3,7 +3,7 @@ from counselor.services import Spec
 from ecocloud.settings import CSV_LOCATION, SPEC_POWER
 from counselor.models import Region, ServiceRegionRelation
 
-
+# load the data about the environmental impact of each region
 def load_csv():
     file = pd.read_csv(CSV_LOCATION, header=0, delimiter=';', index_col=False)
 
@@ -33,16 +33,22 @@ def get_region_rank(regions, current_region: Region, service_plan: ServiceRegion
 # pass the current cpu usage in number of percentage. Default = 50
 def get_spec_co(spec: Spec, region: Region, cpu_usage=50):
     power = get_spec_power_use(spec, cpu_usage)
+    # pue * co_foot_print gives us the effective amount of carbon needed for
+    #   1kWh of electricity used by a resource
     return power * region.pue * region.co_foot_print
 
 
-# returns the power usage of the provided specification. The provider is part of the spec
-# pass the current cpu usage in number of percentage. Default = 50
+# returns the power usage of the provided specification in kWh
+# Provider is part of the spec
+# Pass the current cpu usage in number of percentage. Default = 50
 def get_spec_power_use(spec: Spec, cpu_usage=50):
     spec.stats = SPEC_POWER[spec.provider]
+    # get the mean CPU cost for usage%
     cpu = (spec.stats["max_cpu"] - spec.stats["min_cpu"]) * \
           cpu_usage / 100 + spec.stats["min_cpu"]
+    # per TB power consumption for storage
     storage = spec.stats["storage"] * spec.storage / 1024
+    # per GB power consumption for memory
     memory = spec.stats["memory"] * spec.memory
 
     return cpu + storage + memory

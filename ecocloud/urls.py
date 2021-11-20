@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # get the best regions based on your current configs
     path('api/counselor/', include('counselor.urls', namespace='counselor'))
 ]
