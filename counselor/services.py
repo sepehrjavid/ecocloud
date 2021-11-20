@@ -5,3 +5,4 @@ class Spec(object):
         self.nodes = kwargs.get('nodes')
         self.storage = kwargs.get('storage')
         self.memory = kwargs.get('memory')
+        self.stats = {}

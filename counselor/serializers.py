@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from counselor.models import Region
+from ecocloud.tools import get_spec_power_use
 
 
 class RegionSerializer(serializers.ModelSerializer):
@@ -20,4 +21,5 @@ class RegionSerializer(serializers.ModelSerializer):
         return obj.name.split('-')[0]
 
     def get_spec_co(self, obj):
-        return obj.co_foot_print
+        current_spec = self.context.get("spec")
+        return get_spec_power_use(current_spec)
