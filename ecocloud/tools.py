@@ -25,7 +25,7 @@ def get_region_rank(regions, current_region: Region) -> tuple:
         if (region.co_foot_print * region.pue) < (current_region.co_foot_print * current_region.pue):
             top_regions.append(region)
 
-    top_regions.sort(key=lambda x: x.co_foot_print * x.pue, reverse=True)
+    top_regions.sort(key=lambda x: x.co_foot_print * x.pue)
     return top_regions[:5], len(top_regions) + 1
 
 

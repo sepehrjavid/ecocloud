@@ -38,3 +38,6 @@ class ServiceRegionRelation(models.Model):
 
     class Meta:
         unique_together = ('region', 'service', 'service_plan')
+
+    def __str__(self):
+        return f"{self.region.name} | {self.service.name} | {self.service_plan} | {self.price}"
