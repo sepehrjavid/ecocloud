@@ -14,7 +14,6 @@ class RegionSerializer(serializers.ModelSerializer):
             'provider',
             'name',
             'spec_co',
-            'pue',
             'price_diff'
         ]
 
